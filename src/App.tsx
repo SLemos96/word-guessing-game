@@ -3,6 +3,7 @@ import {
   ChartBarIcon,
   SunIcon,
   MoonIcon,
+  QuestionMarkCircleIcon,
 } from '@heroicons/react/outline'
 import { useState, useEffect } from 'react'
 import { Alert } from './components/alerts/Alert'
@@ -74,7 +75,7 @@ function App() {
     if (isDarkMode) {
       document.documentElement.classList.add('dark')
     } else {
-      document.documentElement.classList.remove('dark')
+      document.documentElement.classList.add('dark') //gambiarra pra manter sempre o tema escuro
     }
   }, [isDarkMode])
 
@@ -160,11 +161,11 @@ function App() {
 
   return (
     <div className="py-8 max-w-7xl mx-auto sm:px-6 lg:px-8">
-      <div className="flex w-80 mx-auto items-center mb-8 mt-12">
+      <div className="flex w-80 mx-auto items-center mb-4 mt-2">
         <h1 className="text-xl ml-2.5 grow font-bold dark:text-white">
           {GAME_TITLE}
         </h1>
-        {isDarkMode ? (
+        {/* {isDarkMode ? (
           <SunIcon
             className="h-6 w-6 mr-2 cursor-pointer dark:stroke-white"
             onClick={() => handleDarkMode(!isDarkMode)}
@@ -174,7 +175,11 @@ function App() {
             className="h-6 w-6 mr-2 cursor-pointer"
             onClick={() => handleDarkMode(!isDarkMode)}
           />
-        )}
+        )} */}
+        <QuestionMarkCircleIcon
+          className="h-6 w-6 mr-2 cursor-pointer dark:stroke-white"
+          onClick={() => setIsAboutModalOpen(true)}
+        />
         <InformationCircleIcon
           className="h-6 w-6 mr-2 cursor-pointer dark:stroke-white"
           onClick={() => setIsInfoModalOpen(true)}
@@ -212,13 +217,13 @@ function App() {
         handleClose={() => setIsAboutModalOpen(false)}
       />
 
-      <button
+      {/* <button
         type="button"
         className="mx-auto mt-8 flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded text-indigo-700 bg-indigo-100 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 select-none"
         onClick={() => setIsAboutModalOpen(true)}
       >
         {ABOUT_GAME_MESSAGE}
-      </button>
+      </button> */}
 
       <Alert message={NOT_ENOUGH_LETTERS_MESSAGE} isOpen={isNotEnoughLetters} />
       <Alert
