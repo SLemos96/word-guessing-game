@@ -20,6 +20,15 @@ export const getWordOfDay = () => {
   const index = Math.floor((now - epochMs) / msInDay)
   const nextday = (index + 1) * msInDay + epochMs
 
+  //fazendo uma seleção quando o index é par ou impar 
+  //e buscando a palavra dentro de uma das opções disponíveis
+  // if(index % 2 == 0){
+  //   return {
+  //     solution: WORDS[index % WORDS.length].toUpperCase(),
+  //     solutionIndex: index,
+  //     tomorrow: nextday,
+  //   }
+  // }
   return {
     solution: WORDS[index % WORDS.length].toUpperCase(),
     solutionIndex: index,

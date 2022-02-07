@@ -79,10 +79,10 @@ function App() {
     }
   }, [isDarkMode])
 
-  const handleDarkMode = (isDark: boolean) => {
-    setIsDarkMode(isDark)
-    localStorage.setItem('theme', isDark ? 'dark' : 'light')
-  }
+  // const handleDarkMode = (isDark: boolean) => {
+  //   setIsDarkMode(isDark)
+  //   localStorage.setItem('theme', isDark ? 'dark' : 'light')
+  // }
 
   useEffect(() => {
     saveGameStateToLocalStorage({ guesses, solution })
@@ -160,22 +160,11 @@ function App() {
   }
 
   return (
-    <div className="py-8 max-w-7xl mx-auto sm:px-6 lg:px-8">
-      <div className="flex w-80 mx-auto items-center mb-4 mt-2">
+    <div className="py-1 max-w-7xl mx-auto sm:px-6 lg:px-8">
+      <div className="flex w-80 mx-auto items-center mb-2 mt-2">
         <h1 className="text-xl ml-2.5 grow font-bold dark:text-white">
           {GAME_TITLE}
         </h1>
-        {/* {isDarkMode ? (
-          <SunIcon
-            className="h-6 w-6 mr-2 cursor-pointer dark:stroke-white"
-            onClick={() => handleDarkMode(!isDarkMode)}
-          />
-        ) : (
-          <MoonIcon
-            className="h-6 w-6 mr-2 cursor-pointer"
-            onClick={() => handleDarkMode(!isDarkMode)}
-          />
-        )} */}
         <QuestionMarkCircleIcon
           className="h-6 w-6 mr-2 cursor-pointer dark:stroke-white"
           onClick={() => setIsAboutModalOpen(true)}
